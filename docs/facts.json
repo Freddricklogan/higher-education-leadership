@@ -1,0 +1,67 @@
+{
+  "title": "Higher Education Leadership & Governance",
+  "subtitle": "a graduate-level guide to leading a college or university, with an institution explorer, a budget allocator and a four-frame quiz",
+  "problem": "New deans, directors and aspiring presidents learn the university from inside one unit and are surprised by the rest: a board that will not manage, a faculty senate that will not be managed, a budget in which the largest line is a discount, an accreditor whose 'voluntary' review decides whether federal aid arrives. The vocabulary of shared governance and net tuition is heard in meetings long before it is understood.",
+  "solution": "A sixteen-section resource that maps the landscape and six institution types, shared governance role by role, Bolman and Deal's frames applied to one department closure, four leadership theories, finance and enrollment management, student development theory and the functional areas of student affairs, equity and campus climate, change and crisis, the legal domains, assessment and accreditation — with an institution explorer, a budget allocator that keeps every slice summing to 100% and judges the result, and a which-frame-is-this quiz.",
+  "pedagogy": "one institution, many lenses: the explorer, budget and frame quiz all return to how a single campus decision looks from each seat at the table; the law and accreditation sections are orientations with sources, not advice; a glossary closes the loop.",
+  "section_titles": [
+    "the landscape",
+    "institution explorer",
+    "governance",
+    "shared governance role by role",
+    "four frames",
+    "leadership theory",
+    "finance",
+    "enrollment management",
+    "student development",
+    "student affairs",
+    "equity and climate",
+    "change and crisis",
+    "legal aspects",
+    "assessment",
+    "accreditation",
+    "glossary"
+  ],
+  "widgets": [
+    {
+      "name": "Institution explorer",
+      "what": "Six tabs — community college, regional comprehensive, research university, liberal arts, minority-serving, for-profit — with mission, students, funding and governance"
+    },
+    {
+      "name": "Four-frame tabs",
+      "what": "Structural, human-resource, political and symbolic readings of one scenario: closing a low-enrollment department"
+    },
+    {
+      "name": "Which frame is this?",
+      "what": "Short scenarios to classify by frame, with an explanation and a running score"
+    },
+    {
+      "name": "Budget allocator",
+      "what": "Sliders for instruction, academic support, student services, administration and more; moving one rescales the others so the total stays at 100%, then a verdict describes the priorities implied"
+    }
+  ],
+  "quiz_topics": [
+    "the board's fiduciary role under shared governance",
+    "net tuition and discounting",
+    "yield in the enrollment funnel",
+    "why accreditation is functionally mandatory",
+    "the symbolic frame"
+  ],
+  "tour": [
+    "the first section opens and the count rises.",
+    "governance, net tuition, yield, accreditation and the four frames"
+  ],
+  "repo": "higher-education-leadership",
+  "tests": 7,
+  "cov_all": 79.84,
+  "cov_kit": 78.75,
+  "vars": 26,
+  "inline_styles": 52,
+  "style_classes": 23,
+  "buttons": 15,
+  "tables": 3,
+  "main_note": "wrapped the content in a `<main>` landmark",
+  "sections": 16,
+  "reading_min": 19,
+  "words": 4237
+}

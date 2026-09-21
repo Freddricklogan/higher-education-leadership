@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
 <title>Higher Education Leadership &amp; Governance — An Interactive Resource</title>
 <meta name="description" content="A graduate-level, interactive resource on higher education leadership and governance: institution types, shared governance, finance, student development theory, DEI, legal aspects, and assessment. Authored by Freddrick Logan.">
 <meta name="author" content="Freddrick Logan">
@@ -12,228 +13,18 @@
 <meta property="og:description" content="Institution types, shared governance, finance, student development, DEI, legal aspects, and assessment — an interactive graduate-level resource.">
 <meta property="og:url" content="https://freddricklogan.github.io/higher-education-leadership/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2314213d'/%3E%3Cpath d='M16 7 4 12l12 5 9-3.75V19' fill='none' stroke='%2394773d' stroke-width='2.2' stroke-linejoin='round' stroke-linecap='round'/%3E%3Cpath d='M9 15.5V20c0 1.7 3.13 3 7 3s7-1.3 7-3v-4.5' fill='none' stroke='%2394773d' stroke-width='2.2' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E">
-<style>
-  /* ==== EXECUTIVE DESIGN SYSTEM — light, editorial, WCAG-aware ==== */
-  :root{
-    --paper:#ffffff;--paper2:#f5f7f9;--paper3:#eef1f5;
-    --navy:#14213d;--navy2:#1c2f4f;
-    --panel:#ffffff;--panel2:#ffffff;--panel3:#f5f7f9;
-    --line:#e3e7ec;--line2:#d1d8e2;
-    --accent:#1e3a5f;--accent2:#2a5486;--accent3:#243f6a;
-    --ink:#14213d;--body:#33404f;--muted:#4c596b;--dim:#5f6c7e;
-    --gold:#94773d;--gold-soft:#f3eddf;
-    --good:#15803d;--warn:#b45309;--bad:#b3261e;
-    --serif:Georgia,'Iowan Old Style','Palatino Linotype','Times New Roman',serif;
-    --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Inter,system-ui,sans-serif;
-    --r:12px;--maxw:1060px;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{font-family:var(--sans);color:var(--body);line-height:1.7;background:var(--paper);
-    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-  a{color:var(--accent);text-decoration:none}
-  a:hover{color:var(--accent2);text-decoration:underline}
-  a:focus-visible,button:focus-visible,.tab:focus-visible,.opt:focus-visible,.ck:focus-visible,input:focus-visible{
-    outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
-  h1,h2,h3,h4{font-family:var(--serif);color:var(--ink);font-weight:700;letter-spacing:-.01em}
-  h2{font-size:1.75rem;line-height:1.2;margin-bottom:8px}
-  h3{font-size:1.18rem;color:var(--navy);margin-bottom:8px}
-  p{color:var(--body)}
-  .lead{color:var(--muted)}
-  em{color:inherit}
-  .eyebrow{font-family:var(--sans);text-transform:uppercase;letter-spacing:.18em;font-size:.72rem;font-weight:700;color:var(--gold)}
 
-  /* NAV */
-  nav.top{position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);
-    background:rgba(255,255,255,.92);border-bottom:1px solid var(--line)}
-  nav.top .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:14px}
-  .logo{display:flex;align-items:center;gap:11px;font-family:var(--serif);font-weight:700;font-size:1.05rem;color:var(--ink);white-space:nowrap}
-  .logo svg{width:30px;height:30px}
-  .navlinks{display:flex;gap:22px;font-size:.85rem;overflow-x:auto}
-  .navlinks a{color:var(--muted);font-weight:600;white-space:nowrap}
-  .navlinks a:hover{color:var(--accent);text-decoration:none}
-  @media(max-width:860px){.navlinks{display:none}}
-
-  /* HERO */
-  header.hero{padding:80px 0 56px;position:relative}
-  .hero .eyebrow{margin-bottom:18px}
-  .hero h1{font-family:var(--serif);font-size:clamp(2.1rem,5vw,3.3rem);line-height:1.1;letter-spacing:-.02em;
-    font-weight:700;color:var(--ink);margin-bottom:22px}
-  .hero p{font-size:1.14rem;color:var(--muted);max-width:660px}
-  .hero .cta{margin-top:30px;display:flex;gap:12px;flex-wrap:wrap}
-  .btn{padding:12px 22px;border-radius:8px;font-weight:600;font-size:.92rem;cursor:pointer;
-    border:1px solid var(--line2);background:#fff;color:var(--ink);transition:.15s;font-family:var(--sans)}
-  .btn.primary{background:var(--navy);border-color:var(--navy);color:#fff}
-  .btn.primary:hover{background:var(--navy2)}
-  .btn:hover{border-color:var(--accent);color:var(--accent)}
-  .btn.primary:hover{color:#fff}
-  .statrow{display:flex;gap:40px;margin-top:48px;flex-wrap:wrap}
-  .statrow .s .n{font-family:var(--serif);font-size:1.9rem;font-weight:700;color:var(--navy)}
-  .statrow .s .l{font-size:.78rem;color:var(--dim);text-transform:uppercase;letter-spacing:.09em;margin-top:2px}
-
-  /* EXECUTIVE SUMMARY / TL;DR */
-  .exec-summary{background:var(--paper2);border:1px solid var(--line2);border-left:4px solid var(--navy);
-    border-radius:12px;padding:26px 28px;margin:6px 0 0}
-  .exec-summary .tldr{font-family:var(--sans);text-transform:uppercase;letter-spacing:.14em;font-size:.68rem;
-    font-weight:700;color:var(--gold);margin-bottom:8px}
-  .exec-summary h2{font-size:1.2rem;margin-bottom:12px}
-  .exec-summary ul{list-style:none;padding:0;margin:0;display:grid;gap:9px}
-  .exec-summary li{padding-left:22px;position:relative;color:var(--muted);font-size:.96rem}
-  .exec-summary li::before{content:'';position:absolute;left:0;top:.62em;width:8px;height:8px;border-radius:50%;
-    background:var(--gold)}
-  .exec-summary li b{color:var(--ink);font-weight:700}
-
-  section{padding:60px 0;border-top:1px solid var(--line)}
-  .sec-head{margin-bottom:34px;max-width:720px}
-  .sec-head .eyebrow{display:block;margin-bottom:12px}
-
-  .grid{display:grid;gap:20px}
-  .g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
-  @media(max-width:860px){.g2,.g3,.g4{grid-template-columns:1fr}}
-  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:24px;
-    box-shadow:0 1px 2px rgba(20,33,61,.04)}
-  .card.hoverable{transition:.18s}.card.hoverable:hover{border-color:var(--line2);transform:translateY(-2px);
-    box-shadow:0 14px 34px -20px rgba(20,33,61,.35)}
-  .card .tag{display:inline-block;font-family:var(--sans);font-size:.68rem;font-weight:700;text-transform:uppercase;
-    letter-spacing:.09em;color:var(--gold);background:var(--gold-soft);padding:3px 10px;border-radius:4px;margin-bottom:12px}
-  .card ul{margin:10px 0 0 0;padding-left:18px;color:var(--muted);font-size:.92rem}
-  .card ul li{margin-bottom:6px}
-  .kv{font-size:.92rem;color:var(--muted);margin-top:4px}.kv b{color:var(--ink);font-weight:700}
-
-  /* TABS */
-  .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
-  .tab{padding:10px 16px;border-radius:8px;border:1px solid var(--line2);background:#fff;color:var(--muted);
-    font-weight:600;font-size:.88rem;cursor:pointer;transition:.15s;font-family:var(--sans)}
-  .tab:hover{color:var(--accent);border-color:var(--accent)}
-  .tab.active{background:var(--navy);border-color:var(--navy);color:#fff}
-  .panel{display:none;animation:fade .3s ease}
-  .panel.active{display:block}
-  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-  .panel-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:22px}
-  @media(max-width:860px){.panel-grid{grid-template-columns:1fr}}
-  .facts{list-style:none;padding:0}
-  .facts li{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:.92rem}
-  .facts li span:first-child{color:var(--dim);min-width:130px;font-weight:600}
-  .facts li span:last-child{color:var(--ink)}
-
-  /* SELECTOR widget */
-  .selector{background:var(--paper2);border:1px solid var(--line2);border-radius:14px;padding:28px}
-  .q{margin-bottom:20px}
-  .q p{font-weight:600;color:var(--ink);margin-bottom:10px}
-  .opts{display:flex;gap:8px;flex-wrap:wrap}
-  .opt{padding:9px 14px;border-radius:8px;border:1px solid var(--line2);background:#fff;
-    color:var(--muted);cursor:pointer;font-size:.88rem;transition:.15s;font-family:var(--sans)}
-  .opt:hover{border-color:var(--accent);color:var(--accent)}
-  .opt.sel{background:var(--navy);border-color:var(--navy);color:#fff}
-  .result{margin-top:20px;padding:20px;border-radius:10px;background:#fff;border:1px solid var(--line2);border-left:4px solid var(--gold);display:none}
-  .result.show{display:block;animation:fade .3s}
-  .result .big{font-family:var(--serif);font-size:1.25rem;font-weight:700;color:var(--navy);margin-bottom:4px}
-
-  /* STEPPER */
-  .steps{counter-reset:s;display:grid;gap:14px}
-  .step{display:flex;gap:18px;align-items:flex-start;background:#fff;border:1px solid var(--line);
-    border-radius:12px;padding:18px 20px;box-shadow:0 1px 2px rgba(20,33,61,.04)}
-  .step .num{counter-increment:s;flex:0 0 40px;height:40px;width:40px;border-radius:9px;display:grid;place-items:center;
-    background:var(--navy);color:#fff;font-family:var(--serif);font-weight:700}
-  .step .num::before{content:counter(s,decimal-leading-zero)}
-  .step h4{font-size:1.02rem;margin-bottom:3px}
-  .step p{font-size:.92rem;color:var(--muted)}
-
-  /* TABLE */
-  table{width:100%;border-collapse:collapse;font-size:.92rem;margin-top:8px}
-  th{text-align:left;font-family:var(--sans);color:var(--navy);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;
-    padding:12px 13px;border-bottom:2px solid var(--line2)}
-  td{padding:12px 13px;border-bottom:1px solid var(--line);color:var(--muted);vertical-align:top}
-  td b{color:var(--ink);font-weight:700}
-  tbody tr:hover{background:var(--paper2)}
-  .tbl-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--line);background:#fff}
-
-  /* LADDER / coder */
-  .coder{background:var(--paper2);border:1px solid var(--line2);border-radius:14px;padding:26px}
-  .ladder{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:22px 0 8px;position:relative}
-  @media(max-width:860px){.ladder{grid-template-columns:1fr;gap:10px}}
-  .rung{text-align:center;padding:15px 11px;border:1px solid var(--line);background:#fff;position:relative}
-  .rung:first-child{border-radius:10px 0 0 10px}.rung:last-child{border-radius:0 10px 10px 0}
-  @media(max-width:860px){.rung{border-radius:10px!important}}
-  .rung.on{background:var(--paper3);border-color:var(--navy)}
-  .rung .lbl{font-size:.7rem;text-transform:uppercase;letter-spacing:.07em;color:var(--dim);margin-bottom:6px;font-weight:600}
-  .rung .val{font-size:.9rem;color:var(--ink);font-weight:600;min-height:2.6em}
-  .quote{font-family:var(--serif);font-style:italic;font-size:1.08rem;color:var(--ink);border-left:3px solid var(--gold);
-    padding:6px 18px;margin-bottom:10px;background:transparent}
-
-  /* CHECKLIST scorer */
-  .checklist{display:grid;gap:10px}
-  .ck{display:flex;gap:12px;align-items:flex-start;padding:13px 15px;border:1px solid var(--line);border-radius:10px;
-    cursor:pointer;transition:.15s;background:#fff}
-  .ck:hover{border-color:var(--accent)}
-  .ck.on{background:#f0f6f2;border-color:var(--good)}
-  .ck .box{flex:0 0 20px;height:20px;width:20px;border-radius:5px;border:2px solid var(--dim);display:grid;place-items:center;margin-top:2px;background:#fff}
-  .ck.on .box{background:var(--good);border-color:var(--good)}
-  .ck.on .box::after{content:'✓';color:#fff;font-weight:900;font-size:.75rem}
-  .ck .t b{display:block;color:var(--ink);font-size:.94rem;font-weight:700}
-  .ck .t span{font-size:.86rem;color:var(--muted)}
-  .score{margin-top:22px;padding:22px;border-radius:12px;text-align:center;background:var(--paper2);border:1px solid var(--line2)}
-  .score .meter{height:12px;border-radius:8px;background:var(--paper3);overflow:hidden;margin:14px 0}
-  .score .fill{height:100%;width:0;border-radius:8px;background:linear-gradient(90deg,var(--navy),var(--good));transition:width .4s}
-  .score .verdict{font-family:var(--serif);font-weight:700;font-size:1.15rem}
-
-  .callout{border-left:3px solid var(--gold);background:var(--paper2);border-radius:0 10px 10px 0;padding:16px 20px;margin:18px 0;font-size:.96rem;color:var(--muted)}
-  .callout b{color:var(--ink)}
-
-  .scholars{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-  .chip{font-size:.82rem;padding:6px 12px;border-radius:6px;border:1px solid var(--line2);color:var(--muted);background:#fff}
-
-  footer{border-top:1px solid var(--line);padding:44px 0 56px;margin-top:20px;color:var(--dim);font-size:.9rem;background:var(--paper2)}
-  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;align-items:flex-start}
-  footer a{color:var(--accent)}
-  .copyright{width:100%;margin-top:18px;padding-top:16px;border-top:1px solid var(--line);color:var(--dim);font-size:.82rem}
-  .backhub{display:inline-flex;align-items:center;gap:7px;font-size:.85rem;color:var(--muted);margin-bottom:10px}
-
-  /* ORG CHART (scoped) */
-  .org{display:grid;gap:12px;margin-top:8px}
-  .org .tier{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
-  .org .node{flex:1 1 160px;max-width:230px;text-align:center;padding:13px 15px;border-radius:12px;border:1px solid var(--line);
-    background:#fff;box-shadow:0 1px 2px rgba(20,33,61,.04)}
-  .org .node.head{border-color:var(--navy);background:var(--paper3)}
-  .org .node b{display:block;color:var(--ink);font-size:.95rem;font-weight:700}
-  .org .node span{font-size:.8rem;color:var(--dim)}
-  .org .connector{text-align:center;color:var(--gold);font-size:1rem;line-height:1}
-
-  /* BUDGET slider rows (scoped) */
-  .brow{display:grid;grid-template-columns:200px 1fr 74px;gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
-  @media(max-width:600px){.brow{grid-template-columns:1fr;gap:6px}}
-  .brow .bname b{color:var(--ink);font-weight:700;font-size:.94rem}
-  .brow .bname span{display:block;font-size:.78rem;color:var(--dim)}
-  .brow input[type=range]{width:100%;accent-color:var(--navy)}
-  .brow .bval{text-align:right;font-weight:700;color:var(--navy);font-size:1rem}
-  /* ==== Executive memorandum + collapsible sections ==== */
-  .memo-head{font-family:var(--serif);font-weight:700;font-size:1rem;letter-spacing:.16em;text-transform:uppercase;color:var(--navy);border-bottom:1px solid var(--line2);padding-bottom:10px;margin-bottom:12px}
-  .memo-meta{display:grid;gap:5px;margin-bottom:16px}
-  .memo-meta>div{display:flex;gap:10px;font-size:.92rem;color:var(--muted)}
-  .memo-meta span{flex:0 0 auto;min-width:48px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;font-size:.7rem;color:var(--gold);padding-top:3px}
-  .expand-bar{max-width:var(--maxw);margin:0 auto;padding:22px 24px 0;display:flex;justify-content:flex-end}
-  .expand-bar button{font-family:var(--sans);font-size:.8rem;font-weight:600;color:var(--accent);background:#fff;border:1px solid var(--line2);border-radius:7px;padding:8px 14px;cursor:pointer}
-  .expand-bar button:hover{border-color:var(--accent)}
-  .expand-bar button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-  .sec-head.sect-toggle{cursor:pointer;position:relative;padding-right:40px}
-  .sec-head.sect-toggle::after{content:'';position:absolute;right:8px;top:10px;width:12px;height:12px;border-right:2.5px solid var(--navy);border-bottom:2.5px solid var(--navy);transform:rotate(45deg);transition:transform .2s}
-  section.collapsed .sec-head.sect-toggle::after{transform:rotate(-45deg)}
-  .sec-head.sect-toggle:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:4px}
-  section.collapsed .sect-body{display:none}
-  .sect-body{animation:fade .3s ease}
-  /* Centered footer */
-  footer .wrap{flex-direction:column;align-items:center;text-align:center;gap:6px;justify-content:center}
-  .foot-name{font-family:var(--serif);font-weight:700;color:var(--ink);font-size:1.08rem}
-  .foot-title{color:var(--muted);font-size:.92rem;max-width:640px}
-  .foot-links{margin-top:6px;font-size:.9rem}
-  .foot-links a{color:var(--accent);white-space:nowrap}
-  footer .copyright{width:100%;margin-top:16px;padding-top:14px;border-top:1px solid var(--line);color:var(--dim);font-size:.82rem;text-align:center}
-</style>
+<link rel="canonical" href="https://freddricklogan.github.io/higher-education-leadership/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap">
+<link rel="stylesheet" href="src/exec-shell.css">
+<link rel="stylesheet" href="src/lr-kit.css">
+<link rel="stylesheet" href="src/page.css">
 </head>
 <body>
 
-<nav class="top"><div class="wrap">
+<nav class="top" aria-label="Sections"><div class="wrap">
   <div class="logo">
     <svg viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#14213d"/><path d="M16 7 4 12l12 5 9-3.75V19" fill="none" stroke="#94773d" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/><path d="M9 15.5V20c0 1.7 3.13 3 7 3s7-1.3 7-3v-4.5" fill="none" stroke="#94773d" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/></svg>
     Higher Ed Leadership
@@ -254,8 +45,9 @@
   </div>
 </div></nav>
 
+<main>
 <header class="hero"><div class="wrap">
-  <a class="backhub" href="../resources/">← Educational Leadership &amp; Research Resources</a>
+  <a class="backhub" href="https://freddricklogan.github.io/resources/">← Educational Leadership &amp; Research Resources</a>
   <span class="eyebrow">An Interactive Graduate Resource</span>
   <h1>Higher Education<br>Leadership &amp; Governance.</h1>
   <p class="lead">The structures, finance, and student-development frameworks that run colleges and universities — how institutions are organized and governed, how they are funded, how they support students, and the legal and equity obligations that shape every decision. Built for graduate students, aspiring administrators, and educational leaders.</p>
@@ -304,14 +96,14 @@
         <li><b>Special mission:</b> Minority-Serving Institutions, religious, single-sex, tribal</li>
       </ul></div>
     <div class="card"><h3>Public vs. private control — the honest contrast</h3>
-      <div class="tbl-wrap"><table>
-        <tr><th>Dimension</th><th>Public</th><th>Private nonprofit</th></tr>
+      <div class="tbl-wrap"><table><tbody>
+        <tr><th scope="row">Dimension</th><th scope="row">Public</th><th scope="row">Private nonprofit</th></tr>
         <tr><td><b>Primary funding</b></td><td>State appropriations + tuition</td><td>Tuition + endowment + gifts</td></tr>
         <tr><td><b>Governing board</b></td><td>Often state-appointed</td><td>Self-perpetuating trustees</td></tr>
         <tr><td><b>Accountability</b></td><td>Legislature &amp; public</td><td>Board &amp; mission</td></tr>
         <tr><td><b>Tuition</b></td><td>Lower (esp. in-state)</td><td>Higher sticker, more discounting</td></tr>
         <tr><td><b>Scale</b></td><td>Often large</td><td>Often smaller</td></tr>
-      </table></div></div>
+      </tbody></table></div></div>
   </div>
   <div class="callout"><b>The Carnegie Classification</b>, maintained by the American Council on Education and the Carnegie Foundation, groups institutions by degrees awarded and research activity. It is descriptive, not a ranking — designed so researchers and policymakers can compare like institutions.</div>
 </div></section>
@@ -321,18 +113,18 @@
   <div class="sec-head"><span class="eyebrow">Interactive · Institution Explorer</span><h2>Six institution types, each with its own logic</h2>
     <p class="lead">Every institution type answers a different public need. Select one to see its mission, the students it serves, how it is funded, and how it is governed.</p></div>
   <div class="tabs" id="insttabs">
-    <button class="tab active" data-p="cc">Community College</button>
-    <button class="tab" data-p="regional">Regional Comprehensive</button>
-    <button class="tab" data-p="research">Research University</button>
-    <button class="tab" data-p="liberal">Liberal Arts College</button>
-    <button class="tab" data-p="msi">Minority-Serving</button>
-    <button class="tab" data-p="forprofit">For-Profit</button>
+    <button type="button" class="tab active" data-p="cc">Community College</button>
+    <button type="button" class="tab" data-p="regional">Regional Comprehensive</button>
+    <button type="button" class="tab" data-p="research">Research University</button>
+    <button type="button" class="tab" data-p="liberal">Liberal Arts College</button>
+    <button type="button" class="tab" data-p="msi">Minority-Serving</button>
+    <button type="button" class="tab" data-p="forprofit">For-Profit</button>
   </div>
 
   <div class="panel active" id="cc"><div class="panel-grid">
     <div class="card"><h3>Community &amp; technical colleges</h3>
       <p>Open-access, typically two-year public institutions offering associate degrees, certificates, workforce training, and transfer pathways to four-year schools. The democratizing entry point of American higher education.</p>
-      <p class="kv" style="margin-top:12px"><b>Signature role:</b> access, affordability, workforce development, and the transfer function.</p>
+      <p class="kv lr-s1"><b>Signature role:</b> access, affordability, workforce development, and the transfer function.</p>
       <div class="scholars"><span class="chip">Open admissions</span><span class="chip">Transfer &amp; articulation</span><span class="chip">Guided pathways</span></div></div>
     <ul class="facts">
       <li><span>Mission</span><span>Access, transfer, workforce &amp; adult ed</span></li>
@@ -346,7 +138,7 @@
   <div class="panel" id="regional"><div class="panel-grid">
     <div class="card"><h3>Regional comprehensive universities</h3>
       <p>Master's-focused public universities — the former "state colleges" and normal schools — that grant bachelor's and master's degrees and anchor their regions. Broad access with a strong teaching mission and modest research.</p>
-      <p class="kv" style="margin-top:12px"><b>Signature role:</b> regional access to the bachelor's degree and the professional workforce (teachers, nurses, business).</p>
+      <p class="kv lr-s1"><b>Signature role:</b> regional access to the bachelor's degree and the professional workforce (teachers, nurses, business).</p>
       <div class="scholars"><span class="chip">Teaching-centered</span><span class="chip">Regional stewardship</span><span class="chip">Professional programs</span></div></div>
     <ul class="facts">
       <li><span>Mission</span><span>Access + teaching + applied/regional research</span></li>
@@ -360,7 +152,7 @@
   <div class="panel" id="research"><div class="panel-grid">
     <div class="card"><h3>Research universities (R1 / R2)</h3>
       <p>Doctoral universities with high (R2) to very high (R1) research activity. They combine undergraduate education, graduate/professional education, and large-scale research, and produce most of the nation's PhDs.</p>
-      <p class="kv" style="margin-top:12px"><b>Signature role:</b> knowledge production, doctoral training, and professional schools alongside undergraduate education.</p>
+      <p class="kv lr-s1"><b>Signature role:</b> knowledge production, doctoral training, and professional schools alongside undergraduate education.</p>
       <div class="scholars"><span class="chip">R1: very high research</span><span class="chip">R2: high research</span><span class="chip">Land-grant &amp; flagship</span></div></div>
     <ul class="facts">
       <li><span>Mission</span><span>Research, teaching &amp; service (the tripartite mission)</span></li>
@@ -374,7 +166,7 @@
   <div class="panel" id="liberal"><div class="panel-grid">
     <div class="card"><h3>Liberal arts colleges</h3>
       <p>Small, mostly private, residential baccalaureate colleges centered on undergraduate education in the arts and sciences, close faculty-student contact, and broad intellectual formation rather than narrow vocational training.</p>
-      <p class="kv" style="margin-top:12px"><b>Signature role:</b> undergraduate-focused, residential, seminar-style liberal education.</p>
+      <p class="kv lr-s1"><b>Signature role:</b> undergraduate-focused, residential, seminar-style liberal education.</p>
       <div class="scholars"><span class="chip">Residential</span><span class="chip">Low student–faculty ratio</span><span class="chip">Baccalaureate focus</span></div></div>
     <ul class="facts">
       <li><span>Mission</span><span>Undergraduate liberal education &amp; character formation</span></li>
@@ -388,7 +180,7 @@
   <div class="panel" id="msi"><div class="panel-grid">
     <div class="card"><h3>Minority-Serving Institutions</h3>
       <p>Institutions defined by their mission to, or enrollment of, students of color: <b>HBCUs</b> (Historically Black Colleges and Universities), <b>HSIs</b> (Hispanic-Serving Institutions, ≥25% Hispanic enrollment), and <b>TCUs</b> (Tribal Colleges and Universities), plus AANAPISIs and PBIs.</p>
-      <p class="kv" style="margin-top:12px"><b>Signature role:</b> access, cultural affirmation, and social mobility for historically underserved students.</p>
+      <p class="kv lr-s1"><b>Signature role:</b> access, cultural affirmation, and social mobility for historically underserved students.</p>
       <div class="scholars"><span class="chip">HBCU</span><span class="chip">HSI</span><span class="chip">TCU</span><span class="chip">AANAPISI</span></div></div>
     <ul class="facts">
       <li><span>Mission</span><span>Access, culturally affirming education, mobility</span></li>
@@ -402,7 +194,7 @@
   <div class="panel" id="forprofit"><div class="panel-grid">
     <div class="card"><h3>Private for-profit institutions</h3>
       <p>Proprietary colleges owned by investors or companies, often career- and online-focused with flexible scheduling. They expand access but draw scrutiny over cost, debt, completion, and outcomes.</p>
-      <p class="kv" style="margin-top:12px"><b>Signature role:</b> flexible, career-oriented access — with heightened accountability concerns.</p>
+      <p class="kv lr-s1"><b>Signature role:</b> flexible, career-oriented access — with heightened accountability concerns.</p>
       <div class="scholars"><span class="chip">Proprietary</span><span class="chip">Career-focused</span><span class="chip">Online delivery</span></div></div>
     <ul class="facts">
       <li><span>Mission</span><span>Career/technical training; return to investors</span></li>
@@ -419,7 +211,7 @@
   <div class="sec-head"><span class="eyebrow">Governance &amp; administration</span><h2>Who decides — and how authority is shared</h2>
     <p class="lead">Colleges are governed by a distinctive arrangement called <b>shared governance</b>, in which authority is divided among the governing board, the administration, and the faculty. Understanding who holds which authority is the key to leading in higher education.</p></div>
 
-  <div class="grid g3" style="margin-bottom:24px">
+  <div class="grid g3 lr-s2">
     <div class="card hoverable"><span class="tag">Governing board</span><h3>Fiduciary authority</h3>
       <p class="kv">Trustees or regents hold ultimate legal responsibility: they set mission and policy, hire and evaluate the president, approve the budget, and steward assets — but do not manage day-to-day operations.</p></div>
     <div class="card hoverable"><span class="tag">Administration</span><h3>Executive authority</h3>
@@ -430,7 +222,7 @@
 
   <div class="card">
     <h3>A university organization chart</h3>
-    <p class="kv" style="margin-bottom:8px">A typical structure — flowing from the board through the president to academic (provost) and administrative (vice-president) lines.</p>
+    <p class="kv lr-s3">A typical structure — flowing from the board through the president to academic (provost) and administrative (vice-president) lines.</p>
     <div class="org">
       <div class="tier"><div class="node head"><b>Governing Board</b><span>Trustees / Regents — fiduciary</span></div></div>
       <div class="connector">│</div>
@@ -451,7 +243,7 @@
     </div>
   </div>
 
-  <div class="grid g2" style="margin-top:18px">
+  <div class="grid g2 lr-s4">
     <div class="card"><h3>Academic vs. administrative authority</h3>
       <ul>
         <li><b>Academic authority</b> rests on expertise and peer judgment — collegial, decentralized, slow by design.</li>
@@ -482,7 +274,7 @@
     <div class="card hoverable"><span class="tag">Faculty senate</span><h3>Academic voice</h3>
       <p class="kv">The representative body through which faculty exercise primary authority over curriculum, degree requirements, and academic standards, and advise on budget and appointments. Its power is real but largely <em>consultative</em> — recommendations the board or administration can, in principle, override.</p></div>
   </div>
-  <div class="grid g2" style="margin-top:18px">
+  <div class="grid g2 lr-s4">
     <div class="card"><h3>The AAUP conception of shared governance</h3>
       <ul>
         <li>Articulated in the <b>1966 Statement on Government of Colleges and Universities</b> (AAUP, ACE, AGB).</li>
@@ -506,10 +298,10 @@
   <div class="sec-head"><span class="eyebrow">Interactive · Leadership lenses</span><h2>Bolman &amp; Deal's four frames of leadership</h2>
     <p class="lead">Lee Bolman and Terrence Deal argue that effective leaders <em>reframe</em> — reading the same situation through four different lenses, because each frame reveals what the others hide. Below, all four are applied to one scenario: <b>a university closing a low-enrollment academic department.</b></p></div>
   <div class="tabs" id="frametabs">
-    <button class="tab active" data-fp="fstructural">Structural</button>
-    <button class="tab" data-fp="fhr">Human Resource</button>
-    <button class="tab" data-fp="fpolitical">Political</button>
-    <button class="tab" data-fp="fsymbolic">Symbolic</button>
+    <button type="button" class="tab active" data-fp="fstructural">Structural</button>
+    <button type="button" class="tab" data-fp="fhr">Human Resource</button>
+    <button type="button" class="tab" data-fp="fpolitical">Political</button>
+    <button type="button" class="tab" data-fp="fsymbolic">Symbolic</button>
   </div>
 
   <div class="panel active" id="fstructural"><div class="panel-grid">
@@ -560,20 +352,20 @@
     </ul>
   </div></div>
 
-  <div class="selector" style="margin-top:24px">
-    <h3 style="margin-bottom:4px">Mini-quiz: which frame is this?</h3>
-    <p class="kv" id="frameQNum" style="margin-bottom:14px">Question 1 of 6</p>
-    <div class="q"><p id="frameQ" style="font-size:1.02rem">&nbsp;</p>
+  <div class="selector lr-s5">
+    <h3 class="lr-s6">Mini-quiz: which frame is this?</h3>
+    <p class="kv lr-s7" id="frameQNum">Question 1 of 6</p>
+    <div class="q"><p class="lr-s8" id="frameQ">&nbsp;</p>
       <div class="opts" id="frameOpts">
-        <button class="opt" data-f="fstructural">Structural</button>
-        <button class="opt" data-f="fhr">Human Resource</button>
-        <button class="opt" data-f="fpolitical">Political</button>
-        <button class="opt" data-f="fsymbolic">Symbolic</button>
+        <button type="button" class="opt" data-f="fstructural">Structural</button>
+        <button type="button" class="opt" data-f="fhr">Human Resource</button>
+        <button type="button" class="opt" data-f="fpolitical">Political</button>
+        <button type="button" class="opt" data-f="fsymbolic">Symbolic</button>
       </div>
     </div>
     <div class="result" id="frameResult"><div class="big" id="frameVerdict"></div><p id="frameExplain"></p></div>
-    <div style="margin-top:16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap">
-      <button class="btn" id="frameNext" style="display:none">Next question →</button>
+    <div class="lr-s9">
+      <button type="button" class="btn lr-s10" id="frameNext">Next question →</button>
       <span class="kv" id="frameScore">Score: 0 / 0</span>
     </div>
   </div>
@@ -601,7 +393,7 @@
   <div class="sec-head"><span class="eyebrow">Financing postsecondary education</span><h2>Where the money comes from — and where it goes</h2>
     <p class="lead">Institutions blend several revenue streams, each with its own constraints. Public disinvestment has shifted cost toward students, making affordability the defining finance problem of the era. Try allocating a budget below.</p></div>
 
-  <div class="grid g4" style="margin-bottom:22px">
+  <div class="grid g4 lr-s11">
     <div class="card hoverable"><span class="tag">Tuition &amp; fees</span><h3>Net, not sticker</h3>
       <p class="kv">Published price minus institutional aid (discounting). The largest revenue source at most tuition-dependent institutions.</p></div>
     <div class="card hoverable"><span class="tag">State appropriations</span><h3>Public support</h3>
@@ -614,7 +406,7 @@
 
   <div class="coder">
     <h3>Build a university operating budget</h3>
-    <p class="kv" style="margin-bottom:6px">Allocate 100% of expenditures across the major categories. The readout flags whether your split is balanced or lopsided. Move any slider — the rest rescale to keep the total at 100%.</p>
+    <p class="kv lr-s12">Allocate 100% of expenditures across the major categories. The readout flags whether your split is balanced or lopsided. Move any slider — the rest rescale to keep the total at 100%.</p>
     <div id="budget">
       <div class="brow" data-b="instruction"><div class="bname"><b>Instruction</b><span>Faculty, teaching, academic depts</span></div><input type="range" min="0" max="100" value="38"><div class="bval">38%</div></div>
       <div class="brow" data-b="acadsupport"><div class="bname"><b>Academic &amp; student support</b><span>Libraries, advising, student services</span></div><input type="range" min="0" max="100" value="20"><div class="bval">20%</div></div>
@@ -623,13 +415,13 @@
       <div class="brow" data-b="aid"><div class="bname"><b>Scholarships &amp; aid</b><span>Institutional financial aid</span></div><input type="range" min="0" max="100" value="10"><div class="bval">10%</div></div>
       <div class="brow" data-b="plant"><div class="bname"><b>Operations &amp; maintenance</b><span>Facilities, utilities, deferred upkeep</span></div><input type="range" min="0" max="100" value="6"><div class="bval">6%</div></div>
     </div>
-    <div style="display:flex;gap:10px;justify-content:space-between;align-items:center;margin-top:14px;flex-wrap:wrap">
-      <p class="kv" id="budgetVerdict" style="max-width:70%">A healthy budget keeps instruction and academic support as the largest shares.</p>
-      <div style="text-align:right"><div class="kv">Total allocated</div><div class="bval" id="budgetTotal" style="font-size:1.3rem">100%</div></div>
+    <div class="lr-s13">
+      <p class="kv lr-s14" id="budgetVerdict">A healthy budget keeps instruction and academic support as the largest shares.</p>
+      <div class="lr-s15"><div class="kv">Total allocated</div><div class="bval lr-s16" id="budgetTotal">100%</div></div>
     </div>
   </div>
 
-  <div class="grid g2" style="margin-top:20px">
+  <div class="grid g2 lr-s17">
     <div class="card"><h3>The affordability problem</h3>
       <ul>
         <li>Declining state support per student shifts cost onto tuition and loans.</li>
@@ -638,15 +430,15 @@
         <li>The "iron triangle": cost, quality, and access are hard to improve simultaneously.</li>
       </ul></div>
     <div class="card"><h3>Types of financial aid</h3>
-      <div class="tbl-wrap"><table>
-        <tr><th>Type</th><th>Basis</th><th>Repaid?</th></tr>
+      <div class="tbl-wrap"><table><tbody>
+        <tr><th scope="row">Type</th><th scope="row">Basis</th><th scope="row">Repaid?</th></tr>
         <tr><td><b>Grants (Pell)</b></td><td>Need</td><td>No</td></tr>
         <tr><td><b>Scholarships</b></td><td>Merit or need</td><td>No</td></tr>
         <tr><td><b>Work-study</b></td><td>Need</td><td>No (earned)</td></tr>
         <tr><td><b>Federal loans</b></td><td>Need / non-need</td><td>Yes</td></tr>
         <tr><td><b>Private loans</b></td><td>Credit</td><td>Yes</td></tr>
-      </table></div>
-      <p class="kv" style="margin-top:8px">The <b>FAFSA</b> determines eligibility for federal need-based aid.</p></div>
+      </tbody></table></div>
+      <p class="kv lr-s18">The <b>FAFSA</b> determines eligibility for federal need-based aid.</p></div>
   </div>
 </div></section>
 
@@ -654,9 +446,9 @@
 <section id="enrollment"><div class="wrap">
   <div class="sec-head"><span class="eyebrow">The business model</span><h2>Enrollment management &amp; net tuition revenue</h2>
     <p class="lead">For most institutions, students <em>are</em> the business model: net tuition revenue funds the enterprise. Strategic enrollment management (SEM) — a field pioneered by Don Hossler — integrates marketing, admissions, financial aid, and retention to manage the flow of students, and the revenue they bring.</p></div>
-  <div class="card" style="margin-bottom:20px">
+  <div class="card lr-s19">
     <h3>The enrollment funnel</h3>
-    <p class="kv" style="margin-bottom:8px">Each stage is a smaller slice of the one above it. Managing the funnel means improving conversion at every step — and the yield rate (enrolled ÷ admits) is the number that keeps admissions deans awake.</p>
+    <p class="kv lr-s3">Each stage is a smaller slice of the one above it. Managing the funnel means improving conversion at every step — and the yield rate (enrolled ÷ admits) is the number that keeps admissions deans awake.</p>
     <div class="org">
       <div class="tier"><div class="node head"><b>Prospects / Suspects</b><span>Names in the market</span></div></div>
       <div class="connector">▼</div>
@@ -744,14 +536,14 @@
         <li>They often do so with smaller endowments and less per-student funding than their outcomes warrant.</li>
       </ul></div>
   </div>
-  <div class="grid g3" style="margin-top:18px">
+  <div class="grid g3 lr-s4">
     <div class="card"><h3>Campus climate</h3><p class="kv">The attitudes, behaviors, and structures that shape whether students feel welcome and included. Climate directly affects retention and learning.</p></div>
     <div class="card"><h3>Student services &amp; support</h3><p class="kv">Advising, tutoring, counseling, cultural centers, disability services, and basic-needs support (food, housing) that remove barriers to success.</p></div>
     <div class="card"><h3>Validation &amp; belonging</h3><p class="kv">Rendón's validation theory and belonging research show that affirming interactions with faculty and staff are decisive for underserved students.</p></div>
   </div>
 </div></section>
 
-<!-- CHANGE & CRISIS -->
+<!-- CHANGE &amp; CRISIS -->
 <section id="change"><div class="wrap">
   <div class="sec-head"><span class="eyebrow">Leading change</span><h2>Change &amp; crisis management on campus</h2>
     <p class="lead">Universities are famously hard to change — loosely coupled, tradition-bound, and governed by consensus. John Kotter's eight-step model is a widely used lens for leading planned change; here it is applied to <b>launching a campus-wide student-success initiative to raise retention.</b></p></div>
@@ -765,7 +557,7 @@
     <div class="step"><div class="num"></div><div><h4>Sustain acceleration</h4><p>Scale the pilot, resist declaring victory too soon, and keep pressing on the harder cases.</p></div></div>
     <div class="step"><div class="num"></div><div><h4>Institute the change</h4><p>Embed the practices in budget, job descriptions, and governance so they outlast the champions.</p></div></div>
   </div>
-  <div class="grid g2" style="margin-top:20px">
+  <div class="grid g2 lr-s17">
     <div class="card"><h3>Change is not crisis</h3>
       <ul>
         <li><b>Planned change</b> is deliberate and paced (Kotter; Kezar's models of change in higher education).</li>
@@ -786,8 +578,8 @@
 <section id="legal"><div class="wrap">
   <div class="sec-head"><span class="eyebrow">Legal aspects of higher education</span><h2>The law that governs the campus</h2>
     <p class="lead">Colleges operate inside a dense legal framework. These are the domains every administrator must recognize — the areas where a decision can create real legal exposure.</p></div>
-  <div class="tbl-wrap"><table>
-    <tr><th>Domain</th><th>Source</th><th>What it governs</th></tr>
+  <div class="tbl-wrap"><table><tbody>
+    <tr><th scope="row">Domain</th><th scope="row">Source</th><th scope="row">What it governs</th></tr>
     <tr><td><b>First Amendment</b></td><td>U.S. Constitution</td><td>Free speech, assembly, and religion — binding on public institutions; frames campus speech, protest, and expression.</td></tr>
     <tr><td><b>Title IX</b></td><td>Education Amendments of 1972</td><td>Prohibits sex discrimination in federally funded education, including sexual harassment and assault; sets grievance procedures.</td></tr>
     <tr><td><b>FERPA</b></td><td>Family Educational Rights &amp; Privacy Act (1974)</td><td>Protects the privacy of student education records and gives students rights to access and control disclosure.</td></tr>
@@ -799,7 +591,7 @@
     <tr><td><b>Contract law</b></td><td>State common law</td><td>Governs the student–institution relationship at private colleges, plus employment, vendor, and enrollment agreements — where constitutional claims do not reach.</td></tr>
     <tr><td><b>Negligence / tort</b></td><td>State common law</td><td>Duty of care for foreseeable harm — premises safety, supervision of activities, and, increasingly debated, a duty to protect student welfare.</td></tr>
     <tr><td><b>Copyright &amp; IP</b></td><td>Copyright Act; TEACH Act; Bayh–Dole</td><td>Fair use in teaching, ownership of course materials and faculty scholarship, and rights to federally funded research and inventions.</td></tr>
-  </table></div>
+  </tbody></table></div>
   <div class="callout"><b>Public vs. private matters.</b> Constitutional protections (First Amendment, due process) bind public institutions as state actors; private institutions are governed instead by contract, their own policies, and statutes like Title IX and the ADA that apply to any recipient of federal funds.</div>
 </div></section>
 
@@ -822,7 +614,7 @@
 <section id="accreditation"><div class="wrap">
   <div class="sec-head"><span class="eyebrow">Accreditation · in depth</span><h2>How quality is externally validated</h2>
     <p class="lead">Accreditation is voluntary peer review against published standards — but functionally mandatory, because Title IV federal aid flows only to accredited institutions. Three types operate at different levels, and each runs on a multi-year cycle.</p></div>
-  <div class="grid g3" style="margin-bottom:22px">
+  <div class="grid g3 lr-s11">
     <div class="card hoverable"><span class="tag">Institutional (regional)</span><h3>The whole institution</h3>
       <p class="kv">Historically organized by geographic region (e.g., SACSCOC, HLC, MSCHE, NECHE, WSCUC, NWCCU), these accreditors evaluate the entire institution and are the gateway to federal aid. Since 2020 the "regional" label is formally gone — institutions may seek any recognized institutional accreditor — but the legacy agencies still dominate.</p></div>
     <div class="card hoverable"><span class="tag">National</span><h3>By type, not place</h3>
@@ -853,22 +645,22 @@
 <section id="glossary"><div class="wrap">
   <div class="sec-head"><span class="eyebrow">Reference</span><h2>Core vocabulary</h2></div>
   <div class="grid g2">
-    <div class="card"><ul style="list-style:none;padding:0;margin:0">
-      <li style="padding:9px 0;border-bottom:1px solid var(--line)"><b style="color:var(--ink)">Shared governance</b> — the division of authority among board, administration, and faculty.</li>
-      <li style="padding:9px 0;border-bottom:1px solid var(--line)"><b style="color:var(--ink)">Provost</b> — the chief academic officer; second-ranking executive after the president.</li>
-      <li style="padding:9px 0;border-bottom:1px solid var(--line)"><b style="color:var(--ink)">Tenure</b> — an indefinite appointment protecting academic freedom, granted after peer review.</li>
-      <li style="padding:9px 0;border-bottom:1px solid var(--line)"><b style="color:var(--ink)">Tuition discounting</b> — institutional aid that lowers sticker price to net price.</li>
-      <li style="padding:9px 0"><b style="color:var(--ink)">Land-grant</b> — institutions funded under the Morrill Acts to broaden practical higher education.</li>
+    <div class="card"><ul class="lr-s20">
+      <li class="lr-s21"><b class="lr-s22">Shared governance</b> — the division of authority among board, administration, and faculty.</li>
+      <li class="lr-s21"><b class="lr-s22">Provost</b> — the chief academic officer; second-ranking executive after the president.</li>
+      <li class="lr-s21"><b class="lr-s22">Tenure</b> — an indefinite appointment protecting academic freedom, granted after peer review.</li>
+      <li class="lr-s21"><b class="lr-s22">Tuition discounting</b> — institutional aid that lowers sticker price to net price.</li>
+      <li class="lr-s23"><b class="lr-s22">Land-grant</b> — institutions funded under the Morrill Acts to broaden practical higher education.</li>
     </ul></div>
-    <div class="card"><ul style="list-style:none;padding:0;margin:0">
-      <li style="padding:9px 0;border-bottom:1px solid var(--line)"><b style="color:var(--ink)">Carnegie Classification</b> — the standard framework for grouping U.S. institutions by mission.</li>
-      <li style="padding:9px 0;border-bottom:1px solid var(--line)"><b style="color:var(--ink)">MSI</b> — Minority-Serving Institution (HBCU, HSI, TCU, AANAPISI, PBI).</li>
-      <li style="padding:9px 0;border-bottom:1px solid var(--line)"><b style="color:var(--ink)">Self-authorship</b> — the internal capacity to define one's beliefs, identity, and relationships.</li>
-      <li style="padding:9px 0;border-bottom:1px solid var(--line)"><b style="color:var(--ink)">Title IV</b> — the federal student-aid programs; eligibility depends on accreditation.</li>
-      <li style="padding:9px 0"><b style="color:var(--ink)">Loosely coupled system</b> — Weick/Birnbaum's view of universities as weakly linked units.</li>
+    <div class="card"><ul class="lr-s20">
+      <li class="lr-s21"><b class="lr-s22">Carnegie Classification</b> — the standard framework for grouping U.S. institutions by mission.</li>
+      <li class="lr-s21"><b class="lr-s22">MSI</b> — Minority-Serving Institution (HBCU, HSI, TCU, AANAPISI, PBI).</li>
+      <li class="lr-s21"><b class="lr-s22">Self-authorship</b> — the internal capacity to define one's beliefs, identity, and relationships.</li>
+      <li class="lr-s21"><b class="lr-s22">Title IV</b> — the federal student-aid programs; eligibility depends on accreditation.</li>
+      <li class="lr-s23"><b class="lr-s22">Loosely coupled system</b> — Weick/Birnbaum's view of universities as weakly linked units.</li>
     </ul></div>
   </div>
-  <div class="card" style="margin-top:18px"><h3>Foundational scholars &amp; further reading</h3>
+  <div class="card lr-s4"><h3>Foundational scholars &amp; further reading</h3>
     <div class="scholars">
       <span class="chip">Birnbaum — <em>How Colleges Work</em></span>
       <span class="chip">Bolman &amp; Deal — <em>Reframing Organizations</em></span>
@@ -887,179 +679,20 @@
       <span class="chip">Kotter — <em>Leading Change</em></span>
     </div></div>
 </div></section>
+</main>
 
 <footer><div class="wrap">
   <div class="foot-name">Freddrick Logan</div>
   <div class="foot-title">Higher Education Leadership &amp; Governance</div>
   <nav class="foot-links" aria-label="Footer">
     <a href="https://fredlogan.phd">fredlogan.phd</a> &middot;
-    <a href="../resources/">Resource hub</a> &middot;
+    <a href="https://freddricklogan.github.io/resources/">Resource hub</a> &middot;
     <a href="https://github.com/Freddricklogan">GitHub</a> &middot;
     <a href="https://www.linkedin.com/in/freddricklogan/">LinkedIn</a>
   </nav>
   <div class="copyright">&copy; 2026 Freddrick Logan &mdash; Technologist &amp; Education. All rights reserved.</div>
 </div></footer>
 
-<script>
-// ---- Tabs: institution explorer ----
-document.querySelectorAll('#insttabs .tab').forEach(t=>{
-  t.onclick=()=>{
-    document.querySelectorAll('#insttabs .tab').forEach(x=>x.classList.remove('active'));
-    document.querySelectorAll('#explorer .panel').forEach(p=>p.classList.remove('active'));
-    t.classList.add('active');
-    document.getElementById(t.dataset.p).classList.add('active');
-  };
-});
-
-// ---- Budget allocation widget ----
-(function(){
-  const rows=Array.from(document.querySelectorAll('#budget .brow'));
-  const inputs=rows.map(r=>r.querySelector('input'));
-  const vals=rows.map(r=>r.querySelector('.bval'));
-  const totalEl=document.getElementById('budgetTotal');
-  const verdict=document.getElementById('budgetVerdict');
-
-  function normalize(changedIdx){
-    // Keep total at 100 by scaling the OTHER sliders proportionally.
-    let changed=parseFloat(inputs[changedIdx].value);
-    if(changed>100) changed=100;
-    let others=inputs.map((inp,i)=>i===changedIdx?0:parseFloat(inp.value));
-    let othersSum=others.reduce((a,b)=>a+b,0);
-    const remaining=100-changed;
-    inputs.forEach((inp,i)=>{
-      if(i===changedIdx){inp.value=Math.round(changed);return;}
-      let nv = othersSum===0 ? remaining/(inputs.length-1) : others[i]*(remaining/othersSum);
-      inp.value=Math.round(nv);
-    });
-    // Fix rounding drift so the displayed total reads 100.
-    let sum=inputs.reduce((a,inp)=>a+parseFloat(inp.value),0);
-    let drift=100-sum;
-    if(drift!==0){
-      for(let i=0;i<inputs.length;i++){
-        if(i===changedIdx) continue;
-        let nv=parseFloat(inputs[i].value)+drift;
-        if(nv>=0&&nv<=100){inputs[i].value=nv;break;}
-      }
-    }
-    render();
-  }
-
-  function render(){
-    let sum=0;
-    inputs.forEach((inp,i)=>{const v=parseFloat(inp.value);sum+=v;vals[i].textContent=v+'%';});
-    totalEl.textContent=Math.round(sum)+'%';
-    const instr=parseFloat(inputs[0].value);
-    const acad=parseFloat(inputs[1].value);
-    const admin=parseFloat(inputs[3].value);
-    let msg,color;
-    if(instr+acad<40){msg='Underinvested in the academic core — instruction and academic support are the mission; most healthy budgets keep them the largest shares.';color='var(--bad)';}
-    else if(admin>instr){msg='Administrative bloat warning — institutional support now exceeds instruction, a pattern critics flag as spending drifting away from the classroom.';color='var(--warn)';}
-    else if(instr+acad>=55){msg='Strongly academic-centered — a large majority of spending flows to instruction and student support.';color='var(--good)';}
-    else{msg='A balanced allocation — the academic core leads while support, research, and operations are sustained.';color='var(--good)';}
-    verdict.textContent=msg;verdict.style.color=color;
-  }
-
-  inputs.forEach((inp,i)=>inp.addEventListener('input',()=>normalize(i)));
-  render();
-})();
-
-// ---- Tabs: four frames ----
-document.querySelectorAll('#frametabs .tab').forEach(t=>{
-  t.onclick=()=>{
-    document.querySelectorAll('#frametabs .tab').forEach(x=>x.classList.remove('active'));
-    document.querySelectorAll('#frames .panel').forEach(p=>p.classList.remove('active'));
-    t.classList.add('active');
-    document.getElementById(t.dataset.fp).classList.add('active');
-  };
-});
-
-// ---- Mini-quiz: which frame is this? ----
-(function(){
-  const Q=[
-    {p:'"Before we do anything, let\'s redraw the org chart and clarify exactly who reports to whom."',a:'fstructural',e:'Structural — the instinct is to fix roles, reporting lines, and coordination.'},
-    {p:'"People are frightened for their jobs. Let\'s hold listening sessions and fund retraining before we move."',a:'fhr',e:'Human Resource — the focus is on people\'s needs, growth, and morale.'},
-    {p:'"Let\'s map who holds power, line up the deans, and negotiate the votes we need before this goes to the floor."',a:'fpolitical',e:'Political — the lens is coalitions, interests, bargaining, and power.'},
-    {p:'"We should hold a ceremony honoring the department\'s legacy so the community can grieve and find meaning."',a:'fsymbolic',e:'Symbolic — the emphasis is on ritual, culture, meaning, and story.'},
-    {p:'"The metrics are unambiguous: enrollment and cost-per-degree miss our thresholds, so policy dictates the outcome."',a:'fstructural',e:'Structural — the decision flows from data, rules, and rational analysis of goals.'},
-    {p:'"If the faculty senate and the union aren\'t on board first, this proposal is dead on arrival."',a:'fpolitical',e:'Political — the reality being read is stakeholder power and negotiation.'}
-  ];
-  let i=0,correct=0,attempted=0,answered=false;
-  const qEl=document.getElementById('frameQ');
-  const numEl=document.getElementById('frameQNum');
-  const opts=Array.from(document.querySelectorAll('#frameOpts .opt'));
-  const resEl=document.getElementById('frameResult');
-  const verdictEl=document.getElementById('frameVerdict');
-  const explainEl=document.getElementById('frameExplain');
-  const scoreEl=document.getElementById('frameScore');
-  const nextBtn=document.getElementById('frameNext');
-
-  function load(){
-    answered=false;
-    qEl.textContent=Q[i].p;
-    numEl.textContent='Question '+(i+1)+' of '+Q.length;
-    opts.forEach(o=>o.classList.remove('sel'));
-    resEl.classList.remove('show');
-    nextBtn.style.display='none';
-  }
-  opts.forEach(o=>{
-    o.onclick=()=>{
-      if(answered) return;
-      answered=true;attempted++;
-      const pick=o.dataset.f, ans=Q[i].a;
-      opts.forEach(x=>{if(x.dataset.f===ans)x.classList.add('sel');});
-      if(pick===ans){correct++;verdictEl.textContent='Correct';verdictEl.style.color='var(--good)';}
-      else{verdictEl.textContent='Not quite';verdictEl.style.color='var(--warn)';}
-      explainEl.textContent=Q[i].e;
-      resEl.classList.add('show');
-      scoreEl.textContent='Score: '+correct+' / '+attempted;
-      nextBtn.style.display='';
-      nextBtn.textContent = i<Q.length-1 ? 'Next question →' : 'Restart ↻';
-    };
-  });
-  nextBtn.onclick=()=>{
-    if(i<Q.length-1){i++;}
-    else{i=0;correct=0;attempted=0;scoreEl.textContent='Score: 0 / 0';}
-    load();
-  };
-  load();
-})();
-</script>
-<script>
-(function(){
-  if(document.querySelector('.sec-head.sect-toggle')) return;
-  var firstCollapsible=null;
-  [].slice.call(document.querySelectorAll('section')).forEach(function(sec){
-    var wrap=sec.querySelector('.wrap'); if(!wrap) return;
-    var head=wrap.querySelector('.sec-head'); if(!head) return;
-    if(wrap.querySelector('.memo-head')||wrap.querySelector('.exec-summary')) return;
-    var body=document.createElement('div'); body.className='sect-body';
-    var n=head.nextSibling;
-    while(n){ var nx=n.nextSibling; body.appendChild(n); n=nx; }
-    wrap.appendChild(body);
-    head.classList.add('sect-toggle');
-    head.setAttribute('role','button'); head.setAttribute('tabindex','0'); head.setAttribute('aria-expanded','false');
-    sec.classList.add('collapsed');
-    if(!firstCollapsible) firstCollapsible=sec;
-    function set(open){ sec.classList[open?'remove':'add']('collapsed'); head.setAttribute('aria-expanded',open?'true':'false'); }
-    head.addEventListener('click',function(){ set(sec.classList.contains('collapsed')); });
-    head.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); set(sec.classList.contains('collapsed')); } });
-  });
-  function openHash(){ var id=decodeURIComponent((location.hash||'').slice(1)); if(!id) return; var el=document.getElementById(id); if(!el) return; var s=el.closest?el.closest('section'):null; if(s&&s.classList.contains('collapsed')){ s.classList.remove('collapsed'); var h=s.querySelector('.sec-head.sect-toggle'); if(h)h.setAttribute('aria-expanded','true'); } setTimeout(function(){ try{el.scrollIntoView({behavior:'smooth',block:'start'});}catch(e){el.scrollIntoView();} },40); }
-  window.addEventListener('hashchange',openHash);
-  if(firstCollapsible){
-    var bar=document.createElement('div'); bar.className='expand-bar';
-    var btn=document.createElement('button'); btn.type='button'; btn.textContent='Expand all sections'; btn.setAttribute('aria-expanded','false');
-    var expanded=false;
-    btn.addEventListener('click',function(){
-      expanded=!expanded;
-      document.querySelectorAll('section').forEach(function(s){ var h=s.querySelector('.sec-head.sect-toggle'); if(!h) return; s.classList[expanded?'remove':'add']('collapsed'); h.setAttribute('aria-expanded',expanded?'true':'false'); });
-      btn.textContent=expanded?'Collapse all sections':'Expand all sections'; btn.setAttribute('aria-expanded',expanded?'true':'false');
-    });
-    bar.appendChild(btn);
-    firstCollapsible.parentNode.insertBefore(bar, firstCollapsible);
-  }
-  openHash();
-})();
-</script>
+<script type="module" src="src/main.js"></script>
 </body>
 </html>
