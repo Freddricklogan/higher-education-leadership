@@ -3,6 +3,7 @@ export const config = {
   title: 'Higher Education Leadership & Governance',
   tagline: 'A graduate-level guide to leading in higher education: institution types, shared governance role by role, Bolman and Deal’s frames, leadership theory, finance and enrollment management, student development, student affairs, equity, change and crisis, law, assessment and accreditation, with an institution explorer, a budget allocator and a frame quiz.',
   repo: 'https://github.com/Freddricklogan/higher-education-leadership',
+  theme: 'plum',
   pagesUrl: 'https://freddricklogan.github.io/higher-education-leadership/',
   quizTitle: 'Five questions on higher education leadership',
   quiz: [
